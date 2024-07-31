@@ -14,13 +14,13 @@
 
 $cert = New-SelfSignedCertificate `
     -CertStoreLocation Cert:\LocalMachine\My `
-    -DnsName <"ENTER-DNS-NAME"> `
+    -DnsName <"The_Black_Within"> `
     -Type CodeSigningCert `
-    -Subject <"ENTER-SUBJECT-NAME"> `
+    -Subject <"The_Black_Within"> `
     -notafter (Get-Date).AddMonths(24) `
     -Verbose
 $cert
-$secPassword = ConvertTo-SecureString -String '<TYPE-PASSWORD>' -Force -AsPlainText
+$secPassword = ConvertTo-SecureString -String '<nani12345678>' -Force -AsPlainText
 $certPath = "Cert:\LocalMachine\My\$($Cert.Thumbprint)"
 Export-PfxCertificate -Cert $certPath -FilePath 'C:\temp\MSAzureAcademy-CodeSigning.pfx' -Password $secPassword
 
